@@ -52,12 +52,13 @@ end
 redirect to '/'
 end
 
-#delaem obrabotchik individualnogo url dlya kagdogo posta
 get '/details/:post_id' do
+	#delaem obrabotchik individualnogo url dlya kagdogo posta(poluchaem peremennuyou iz url)
 	post_id = params[:post_id]
-
-	results = @db.execute 'select * from Posts where id = ?', [post_id] #vibiraem iz BD vse posty s id, kotory ukazan v url
+	#poluchaem spisok postov(u nas budet tolko odin post)(vibiraem iz BD vse posty s id, kotory ukazan v url)
+	results = @db.execute 'select * from Posts where id = ?', [post_id] 
+	#vibiraem etot odin post v peremennuyou @row
 	@row = results[0]
-
+	#vozvrashaem predstavlenie details.erb
 	erb :details
 end
