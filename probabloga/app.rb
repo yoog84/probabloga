@@ -51,3 +51,10 @@ end
 #perenapravlenie na glavnuyou stranicu
 redirect to '/'
 end
+
+#delaem obrabotchik individualnogo url dlya kagdogo posta
+get '/details/:post_id' do
+	post_id = params[:post_id]
+
+	erb "informaciya o poste #{post_id}"
+end
