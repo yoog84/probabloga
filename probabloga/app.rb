@@ -1,4 +1,3 @@
-#encoding: utf-8
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
@@ -9,4 +8,10 @@ end
 
 get '/n003ew' do
   erb :new #podgrugaem file new.erb
+end
+
+post '/new' do
+  content = params[:content]
+
+erb "vi vvely #{content}"
 end
