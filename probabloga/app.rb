@@ -62,3 +62,15 @@ get '/details/:post_id' do
 	#vozvrashaem predstavlenie details.erb
 	erb :details
 end
+
+#obrabotchik post zaprosa /details/...(brauzer otpravlaet dannie na server)
+post '/details/:post_id' do
+
+	#poluchaem peremennuyou iz url
+	post_id = params[:post_id]
+
+	#poluchaem peremennuyou iz post zaprosa
+	aaa = params[:aaa]
+
+	erb "viv vveli coment #{aaa} for post #{post_id}"
+end
