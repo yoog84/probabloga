@@ -24,8 +24,9 @@ configure do #metod configuracii vizivaetsya kagdy raz pri inicializacii priloge
 				'
 end
 
-#vivod vseh postov na ekran
 get '/' do
+	#vivod spiska postov na ekran iz bd
+	@results = db.execute 'select * from Posts order by id desc' #select * from Posts order by id desc - kod izsqlite3 vivodit dannie iz bd naoborot
 	erb :index
 end
 
