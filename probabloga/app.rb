@@ -48,5 +48,6 @@ end
 #sohranenie dannih v BD
 @db.execute 'insert into posts (content, created_date) values (?, datetime())',[aaa] #kod iz sqlite,kotory vstavlyaet text posta & datu(data avtomatom)
 
-erb "vi vvely #{aaa}"
+#perenapravlenie na glavnuyou stranicu
+redirect to '/'
 end
