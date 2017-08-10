@@ -8,5 +8,5 @@ get '/' do
 end
 
 get '/n003ew' do
-  erb "Hello World"
+  erb :new #podgrugaem file new.erb
 end
