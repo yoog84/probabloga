@@ -1,1 +1,12 @@
 <h2>poslednie posty:</h2>
+<br />
+<% @results.each do |post| %>
+	<p>
+		<%= post['content'] %>
+		<br />
+		dobavlen v <%= post['created_date'] %>
+	</p>
+<!-- 	 <hr /> -teg,razdelyayoushiy podcherkivaniem posty
+ -->	
+ <hr />
+<% end %>
