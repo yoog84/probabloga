@@ -13,15 +13,25 @@ before do
 	init_db
 end
 
-#sozdanie tablicy v BD
+#sozdanie tablicy v BD dlya postov
 configure do #metod configuracii vizivaetsya kagdy raz pri inicializacii prilogeniya(pri izmenenii file(kod programmy) ili,& obnovlenii stranicy)
 	init_db
 	#vstavlyaem kod sozdanoy v programme sqlite3, obyazatelno vstavlyaem 'IF NOT EXISTS' dlya togo,chtoby tabl ne peresozdavalas zanovo
 	@db.execute 'CREATE TABLE IF NOT EXISTS posts (  
     			id           INTEGER PRIMARY KEY AUTOINCREMENT,
     			created_date DATE,
-   				 content      TEXT);
-				'
+   				 content      TEXT
+   				 );'
+
+	#sozdanie tablicy v BD dlya comentariev
+	@db.execute 'CREATE TABLE IF NOT EXISTS Comments (  
+    			id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    			created_date DATE,
+   				 content      TEXT,
+   				 post_id     INTEGER
+   				 );'
+
+
 end
 
 get '/' do
