@@ -56,5 +56,8 @@ end
 get '/details/:post_id' do
 	post_id = params[:post_id]
 
-	erb "informaciya o poste #{post_id}"
+	results = @db.execute 'select * from Posts where id = ?', [post_id] #vibiraem iz BD vse posty s id, kotory ukazan v url
+	@row = results[0]
+
+	erb :details
 end
