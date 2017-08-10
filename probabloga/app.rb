@@ -42,5 +42,7 @@ if aaa.length <= 0
 	return erb :new
 end
 
+@db.execute 'insert into posts (content, created_date) values (?, datetime())',[aaa] #kod iz sqlite,kotory vstavlyaet text posta & datu(data avtomatom)
+
 erb "vi vvely #{aaa}"
 end
