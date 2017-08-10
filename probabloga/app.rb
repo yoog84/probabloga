@@ -24,11 +24,12 @@ configure do #metod configuracii vizivaetsya kagdy raz pri inicializacii priloge
 				'
 end
 
-#obrabotchik get zaprosa /new(brauzer poluchaet stranicu s servera)
+#vivod vseh postov na ekran
 get '/' do
-	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
+	erb :index
 end
 
+#obrabotchik get zaprosa /new(brauzer poluchaet stranicu s servera)
 get '/n003ew' do
   erb :new #podgrugaem file new.erb
 end
@@ -42,6 +43,7 @@ if aaa.length <= 0
 	return erb :new
 end
 
+#sohranenie dannih v BD
 @db.execute 'insert into posts (content, created_date) values (?, datetime())',[aaa] #kod iz sqlite,kotory vstavlyaet text posta & datu(data avtomatom)
 
 erb "vi vvely #{aaa}"
