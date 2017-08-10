@@ -12,6 +12,17 @@ before do
 	init_db
 end
 
+#sozdanie tablicy v BD
+configure do #metod configuracii vizivaetsya kagdy raz pri inicializacii prilogeniya(pri izmenenii file ili,& obnovlenii stranicy)
+	init_db
+	#vstavlyaem kod sozdanoy v programme sqlite3, obyazatelno vstavlyaem 'IF NOT EXISTS' dlya togo,chtoby tabl ne peresozdavalas zanovo
+	@db.execute 'CREATE TABLE IF NOT EXISTS posts (  
+    			id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    			created_date DATE,
+   				 content      TEXT);
+				'
+end
+
 get '/' do
 	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
 end
